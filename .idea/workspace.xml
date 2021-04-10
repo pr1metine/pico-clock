@@ -18,13 +18,10 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c24867ff-33b7-442c-8a32-b3866ecf9cb7" name="Default Changelist" comment="feat: Add basic RTC clock">
-      <change afterPath="$PROJECT_DIR$/.gitmodules" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/RPi-Pico-SSD1306-library" afterDir="false" />
+    <list default="true" id="c24867ff-33b7-442c-8a32-b3866ecf9cb7" name="Default Changelist" comment="refactor: Handle formatting via streams&#10;&#10;- Add git submodule SSD1306&#10;- Move warning suppression">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/util/DateHandler.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/util/DateHandler.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,6 +54,11 @@
     <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
     <property name="cf.first.check.clang-format" value="false" />
     <property name="cidr.known.project.marker" value="true" />
     <property name="cmake.loaded.for.project" value="true" />
@@ -121,7 +123,7 @@
       <workItem from="1617880877454" duration="1738000" />
       <workItem from="1617983894672" duration="25000" />
       <workItem from="1618060920645" duration="1774000" />
-      <workItem from="1618066761595" duration="1749000" />
+      <workItem from="1618066761595" duration="6986000" />
     </task>
     <task id="LOCAL-00001" summary="feat: Add basic RTC clock">
       <created>1617882142962</created>
@@ -130,7 +132,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617882142962</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="refactor: Handle formatting via streams&#10;&#10;- Add git submodule SSD1306&#10;- Move warning suppression">
+      <created>1618068704329</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1618068704329</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -150,6 +159,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="feat: Add basic RTC clock" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: Add basic RTC clock" />
+    <MESSAGE value="refactor: Handle formatting via streams&#10;&#10;- Add git submodule SSD1306&#10;- Move warning suppression" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor: Handle formatting via streams&#10;&#10;- Add git submodule SSD1306&#10;- Move warning suppression" />
   </component>
 </project>

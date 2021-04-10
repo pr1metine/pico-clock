@@ -14,9 +14,8 @@ project(pico_clock)
 pico_sdk_init()
 
 # rest of your project
-add_executable(${PROJECT_NAME} main.cpp util/DateHandler.cpp util/DateHandler.h)
+add_executable(${PROJECT_NAME} main.cpp util/DateHandler.cpp util/DateHandler.h RPi-Pico-SSD1306-library/GFX.hpp RPi-Pico-SSD1306-library/GFX.cpp RPi-Pico-SSD1306-library/SSD1306.hpp RPi-Pico-SSD1306-library/SSD1306.cpp)
 target_link_libraries(${PROJECT_NAME} pico_stdlib hardware_rtc hardware_i2c)
-target_include_directories(${PROJECT_NAME} PRIVATE RPi-Pico-SSD1306-library/)
 pico_add_extra_outputs(${PROJECT_NAME})
 pico_enable_stdio_usb(${PROJECT_NAME} 1)
 pico_enable_stdio_uart(${PROJECT_NAME} 0)
