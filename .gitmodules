@@ -1,0 +1,3 @@
+[submodule "RPi-Pico-SSD1306-library"]
+	path = RPi-Pico-SSD1306-library
+	url = https://github.com/mbober1/RPi-Pico-SSD1306-library.git

@@ -2,11 +2,9 @@
 // Created by Quang Thanh Ta on 08.04.21.
 //
 
-#include "hardware/rtc.h"
 #include "pico/util/datetime.h"
 #include "pico/stdlib.h" // NOLINT(modernize-deprecated-headers)
 #include <pico/printf.h>
-#include <cstdlib>
 #include "DateHandler.h"
 
 
