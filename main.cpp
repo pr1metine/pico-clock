@@ -5,16 +5,15 @@
 #include "pico/stdlib.h" // NOLINT(modernize-deprecated-headers)
 #include "pico/util/datetime.h"
 #include "hardware/rtc.h"
-#include "util/DateHandler.h"
 
 const std::string MODES[]{
-        "YEAR",
-        "MONTH",
-        "DAY",
-        "DOTW",
-        "HOUR",
+        "JAHR",
+        "MONAT",
+        "TAG",
+        "WOCHENTAG",
+        "STUNDE",
         "MINUTE",
-        "SECOND",
+        "SEKUNDE",
 };
 
 static const char *DATETIME_DOWS[7] = {
@@ -37,11 +36,11 @@ constexpr int DOWN = 16;
 Mode curMode = YEAR;
 datetime_t t;
 
-void handleModeSelection(uint gpio, uint32_t event) {
+void handleModeSelection(uint, uint32_t) {
     curMode = (Mode) (((int) curMode + 1) % 7);
 }
 
-void handleIncrement(uint gpio, uint32_t event) {
+void handleIncrement(uint, uint32_t) {
     switch (curMode) {
         case YEAR:
             t.year = t.year < 4095 ? t.year + 1 : 0;
@@ -69,7 +68,7 @@ void handleIncrement(uint gpio, uint32_t event) {
     rtc_set_datetime(&t);
 }
 
-void handleDecrement(uint gpio, uint32_t event) {
+void handleDecrement(uint, uint32_t) {
     switch (curMode) {
         case YEAR:
             t.year = t.year > 0 ? t.year - 1 : 4095;
@@ -129,12 +128,6 @@ int main() {
     gpio_set_irq_enabled_with_callback(MODE_SEL, GPIO_IRQ_EDGE_RISE, true, &handleIRQ);
 
     GFX gfx{0x3C, 128, 64, i2c_default};
-    gfx.drawString(0, 10, "Waiting for input");
-    gfx.display();
-
-    // Wait for input before asking for date and time
-//    scanf("%s");
-//    printf("\nReady when you are!\n");
 
     t = {
             .year = 2020,
