@@ -1,12 +1,10 @@
 #include <pico/printf.h>
-#include <sstream>
-#include <iomanip>
 #include "RPi-Pico-SSD1306-library/GFX.hpp"
 #include "pico/stdlib.h" // NOLINT(modernize-deprecated-headers)
 #include "pico/util/datetime.h"
 #include "hardware/rtc.h"
 
-const std::string MODES[]{
+const char *MODES[]{
         "JAHR",
         "MONAT",
         "TAG",
@@ -31,8 +29,8 @@ enum Mode {
 };
 
 constexpr int MODE_SEL = 14;
-constexpr int UP = 15;
-constexpr int DOWN = 16;
+constexpr int UP = 16;
+constexpr int DOWN = 15;
 Mode curMode = YEAR;
 datetime_t t;
 
@@ -148,26 +146,14 @@ int main() {
         gfx.clear();
         rtc_get_datetime(&t);
 
-        std::ostringstream date_str{}, time_str{};
-
-        date_str
-                << DATETIME_DOWS[t.dotw] << ", "
-                << std::setw(2) << std::setfill('0') << std::to_string(t.day) << "."
-                << std::setw(2) << std::setfill('0') << std::to_string(t.month) << "."
-                << std::to_string(t.year);
-        time_str
-                << std::setw(2) << std::setfill('0') << std::to_string(t.hour) << ":"
-                << std::setw(2) << std::setfill('0') << std::to_string(t.min) << ":"
-                << std::setw(2) << std::setfill('0') << std::to_string(t.sec);
-        time_str << " " << "(" << MODES[curMode] << ")";
-
-        printf("\r %s %s", date_str.str().c_str(), time_str.str().c_str());
-
-        gfx.drawString(0, 0, date_str.str());
+        char date_str[40], time_str[40];
+        sprintf(date_str, "%s, %02i.%02i.%i", DATETIME_DOWS[t.dotw], t.day, t.month, t.year);
+        sprintf(time_str, "%02i:%02i:%02i (%s)", t.hour, t.min, t.sec, MODES[curMode]);
+        gfx.drawString(0, 0, date_str);
+        gfx.drawString(0, 20, time_str);
         gfx.display();
-        gfx.drawString(0, 20, time_str.str());
-        gfx.display();
-        sleep_ms(1000);
+
+        sleep_ms(100);
     }
 #pragma clang diagnostic pop
 

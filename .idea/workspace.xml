@@ -18,9 +18,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c24867ff-33b7-442c-8a32-b3866ecf9cb7" name="Default Changelist" comment="feat: Add on board time control&#10;&#10;TODO: Biiig refactor inc">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+    <list default="true" id="c24867ff-33b7-442c-8a32-b3866ecf9cb7" name="Default Changelist" comment="refactor: Replace sstream with char*&#10;&#10;- Remove first gfx.display for less flickering.&#10;- Increase display response time by lowering sleep time in loop">
       <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -44,6 +42,9 @@
       <filtered-out-file-type name="TAG" />
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedIndex" value="1" />
   </component>
   <component name="ProjectId" id="1qscpdtBDKnZP7prAZ4sKKKfYez" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -70,11 +71,6 @@
     <property name="settings.editor.selected.configurable" value="CPPToolchains" />
   </component>
   <component name="RunManager" selected="CMake Application.pico_clock">
-    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="ELF2UF2Build" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="pico_clock" TARGET_NAME="ELF2UF2Build" CONFIG_NAME="Debug-Embedded">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -127,7 +123,8 @@
       <workItem from="1617983894672" duration="25000" />
       <workItem from="1618060920645" duration="1774000" />
       <workItem from="1618066761595" duration="7129000" />
-      <workItem from="1618140695664" duration="12543000" />
+      <workItem from="1618140695664" duration="12718000" />
+      <workItem from="1618167559616" duration="1260000" />
     </task>
     <task id="LOCAL-00001" summary="feat: Add basic RTC clock">
       <created>1617882142962</created>
@@ -171,7 +168,21 @@
       <option name="project" value="LOCAL" />
       <updated>1618166329826</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="feat: Localise MODES&#10;&#10;- refactor: remove unnecessary dependencies">
+      <created>1618167055013</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1618167055013</updated>
+    </task>
+    <task id="LOCAL-00008" summary="refactor: Replace sstream with char*&#10;&#10;- Remove first gfx.display for less flickering.&#10;- Increase display response time by lowering sleep time in loop">
+      <created>1618168602353</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1618168602353</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -198,7 +209,9 @@
     <MESSAGE value="fix: Handle multiline strings&#10;&#10;- feat: Wait for any input to be sent before commencing with date initialisation&#10;&#10;- refactor: Rename string streams" />
     <MESSAGE value="fix: Handle multiline strings&#10;&#10;- feat: Wait for any input to be sent before commencing with date initialisation&#10;&#10;- refactor: Rename string streams&#10;&#10;- Add misc submodule stuff" />
     <MESSAGE value="feat: Add on board time control&#10;&#10;TODO: Biiig refactor inc" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: Add on board time control&#10;&#10;TODO: Biiig refactor inc" />
+    <MESSAGE value="feat: Localise MODES&#10;&#10;- refactor: remove unnecessary dependencies" />
+    <MESSAGE value="refactor: Replace sstream with char*&#10;&#10;- Remove first gfx.display for less flickering.&#10;- Increase display response time by lowering sleep time in loop" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor: Replace sstream with char*&#10;&#10;- Remove first gfx.display for less flickering.&#10;- Increase display response time by lowering sleep time in loop" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
