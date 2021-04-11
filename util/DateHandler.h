@@ -5,16 +5,25 @@
 #ifndef PICO_CLOCK_DATEHANDLER_H
 #define PICO_CLOCK_DATEHANDLER_H
 
+#include <sstream>
+#include <pico/types.h>
+
 datetime_t getInitialDate();
 
 int getIndividualDateInfo(const char *fieldName, bool(*pred)(int));
 
 bool isValidYear(int year);
+
 bool isValidMonth(int month);
+
 bool isValidDay(int day);
+
 bool isValidDOTW(int dotw);
+
 bool isValidHour(int hour);
+
 bool isValidMinute(int min);
+
 bool isValidSecond(int sec);
 
 

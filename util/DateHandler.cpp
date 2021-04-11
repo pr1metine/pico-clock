@@ -2,13 +2,23 @@
 // Created by Quang Thanh Ta on 08.04.21.
 //
 
-#include "pico/util/datetime.h"
-#include "pico/stdlib.h" // NOLINT(modernize-deprecated-headers)
-#include <pico/printf.h>
 #include "DateHandler.h"
+#include "pico/stdlib.h" // NOLINT(modernize-deprecated-headers)
+#include "pico/util/datetime.h"
+#include <iomanip>
+#include <pico/printf.h>
+#include <sstream>
 
-constexpr int UP = 1;
-constexpr int DOWN = 2;
+
+static const char *DATETIME_DOWS[7] = {
+        "Sonntag",
+        "Montag",
+        "Dienstag",
+        "Mittwoch",
+        "Donnerstag",
+        "Freitag",
+        "Samstag",
+};
 
 datetime_t getInitialDate() {
     printf("Please enter the following information...\n");
@@ -59,3 +69,4 @@ bool isValidHour(int hour) { return hour >= 0 && hour <= 23; }
 bool isValidMinute(int min) { return min >= 0 && min <= 59; }
 
 bool isValidSecond(int sec) { return sec >= 0 & sec <= 59; }
+

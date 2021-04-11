@@ -18,15 +18,17 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c24867ff-33b7-442c-8a32-b3866ecf9cb7" name="Default Changelist" comment="feat: Add OLED output">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="c24867ff-33b7-442c-8a32-b3866ecf9cb7" name="Default Changelist" comment="fix: Handle multiline strings&#10;&#10;- feat: Wait for any input to be sent before commencing with date initialisation&#10;&#10;- refactor: Rename string streams&#10;&#10;- Add misc submodule stuff">
+      <change afterPath="$PROJECT_DIR$/mode/DateTimeMode.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/util/ModeHandler.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/util/ModeHandler.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RPi-Pico-SSD1306-library" beforeDir="false" afterPath="$PROJECT_DIR$/RPi-Pico-SSD1306-library" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RPi-Pico-SSD1306-library/example/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/RPi-Pico-SSD1306-library/example/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RPi-Pico-SSD1306-library/example/example.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/RPi-Pico-SSD1306-library/example/example.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/util/DateHandler.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/util/DateHandler.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/util/DateHandler.h" beforeDir="false" afterPath="$PROJECT_DIR$/util/DateHandler.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +41,8 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug-Embedded" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
+    <option name="SIGN_OFF_COMMIT" value="true" />
   </component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
@@ -73,6 +77,11 @@
     <property name="settings.editor.selected.configurable" value="CPPToolchains" />
   </component>
   <component name="RunManager" selected="CMake Application.pico_clock">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ELF2UF2Build" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="pico_clock" TARGET_NAME="ELF2UF2Build" CONFIG_NAME="Debug-Embedded">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -125,7 +134,7 @@
       <workItem from="1617983894672" duration="25000" />
       <workItem from="1618060920645" duration="1774000" />
       <workItem from="1618066761595" duration="7129000" />
-      <workItem from="1618140695664" duration="1366000" />
+      <workItem from="1618140695664" duration="11654000" />
     </task>
     <task id="LOCAL-00001" summary="feat: Add basic RTC clock">
       <created>1617882142962</created>
@@ -148,7 +157,21 @@
       <option name="project" value="LOCAL" />
       <updated>1618073877382</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="fix: Handle multiline strings&#10;&#10;- feat: Wait for any input to be sent before commencing with date initialisation&#10;&#10;- refactor: Rename string streams">
+      <created>1618142095718</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1618142095718</updated>
+    </task>
+    <task id="LOCAL-00005" summary="fix: Handle multiline strings&#10;&#10;- feat: Wait for any input to be sent before commencing with date initialisation&#10;&#10;- refactor: Rename string streams&#10;&#10;- Add misc submodule stuff">
+      <created>1618142165913</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1618142165913</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -167,9 +190,16 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <MESSAGE value="feat: Add basic RTC clock" />
     <MESSAGE value="refactor: Handle formatting via streams&#10;&#10;- Add git submodule SSD1306&#10;- Move warning suppression" />
     <MESSAGE value="feat: Add OLED output" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: Add OLED output" />
+    <MESSAGE value="fix: Handle multiline strings&#10;&#10;- feat: Wait for any input to be sent before commencing with date initialisation&#10;&#10;- refactor: Rename string streams" />
+    <MESSAGE value="fix: Handle multiline strings&#10;&#10;- feat: Wait for any input to be sent before commencing with date initialisation&#10;&#10;- refactor: Rename string streams&#10;&#10;- Add misc submodule stuff" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: Handle multiline strings&#10;&#10;- feat: Wait for any input to be sent before commencing with date initialisation&#10;&#10;- refactor: Rename string streams&#10;&#10;- Add misc submodule stuff" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
 </project>

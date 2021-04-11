@@ -14,7 +14,7 @@ project(pico_clock)
 pico_sdk_init()
 
 # rest of your project
-add_executable(${PROJECT_NAME} main.cpp util/DateHandler.cpp util/DateHandler.h RPi-Pico-SSD1306-library/GFX.hpp RPi-Pico-SSD1306-library/GFX.cpp RPi-Pico-SSD1306-library/SSD1306.hpp RPi-Pico-SSD1306-library/SSD1306.cpp)
+add_executable(${PROJECT_NAME} main.cpp util/DateHandler.cpp util/DateHandler.h RPi-Pico-SSD1306-library/GFX.hpp RPi-Pico-SSD1306-library/GFX.cpp RPi-Pico-SSD1306-library/SSD1306.hpp RPi-Pico-SSD1306-library/SSD1306.cpp util/ModeHandler.cpp util/ModeHandler.h mode/DateTimeMode.h)
 target_link_libraries(${PROJECT_NAME} pico_stdlib hardware_rtc hardware_i2c)
 pico_add_extra_outputs(${PROJECT_NAME})
 pico_enable_stdio_usb(${PROJECT_NAME} 1)
