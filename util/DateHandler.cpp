@@ -7,6 +7,8 @@
 #include <pico/printf.h>
 #include "DateHandler.h"
 
+constexpr int UP = 1;
+constexpr int DOWN = 2;
 
 datetime_t getInitialDate() {
     printf("Please enter the following information...\n");

@@ -18,10 +18,15 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c24867ff-33b7-442c-8a32-b3866ecf9cb7" name="Default Changelist" comment="refactor: Handle formatting via streams&#10;&#10;- Add git submodule SSD1306&#10;- Move warning suppression">
+    <list default="true" id="c24867ff-33b7-442c-8a32-b3866ecf9cb7" name="Default Changelist" comment="feat: Add OLED output">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RPi-Pico-SSD1306-library" beforeDir="false" afterPath="$PROJECT_DIR$/RPi-Pico-SSD1306-library" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RPi-Pico-SSD1306-library/example/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/RPi-Pico-SSD1306-library/example/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RPi-Pico-SSD1306-library/example/example.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/RPi-Pico-SSD1306-library/example/example.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/util/DateHandler.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/util/DateHandler.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,6 +49,7 @@
     </file-type-list>
   </component>
   <component name="ProjectId" id="1qscpdtBDKnZP7prAZ4sKKKfYez" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -68,11 +74,6 @@
   </component>
   <component name="RunManager" selected="CMake Application.pico_clock">
     <configuration name="ELF2UF2Build" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="pico_clock" TARGET_NAME="ELF2UF2Build" CONFIG_NAME="Debug-Embedded">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -123,7 +124,8 @@
       <workItem from="1617880877454" duration="1738000" />
       <workItem from="1617983894672" duration="25000" />
       <workItem from="1618060920645" duration="1774000" />
-      <workItem from="1618066761595" duration="6986000" />
+      <workItem from="1618066761595" duration="7129000" />
+      <workItem from="1618140695664" duration="1366000" />
     </task>
     <task id="LOCAL-00001" summary="feat: Add basic RTC clock">
       <created>1617882142962</created>
@@ -139,7 +141,14 @@
       <option name="project" value="LOCAL" />
       <updated>1618068704329</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="feat: Add OLED output">
+      <created>1618073877382</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1618073877382</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -160,6 +169,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="feat: Add basic RTC clock" />
     <MESSAGE value="refactor: Handle formatting via streams&#10;&#10;- Add git submodule SSD1306&#10;- Move warning suppression" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor: Handle formatting via streams&#10;&#10;- Add git submodule SSD1306&#10;- Move warning suppression" />
+    <MESSAGE value="feat: Add OLED output" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: Add OLED output" />
   </component>
 </project>

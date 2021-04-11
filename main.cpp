@@ -30,10 +30,11 @@ int main() {
     gfx.drawString(0, 10, "Waiting for input");
     gfx.display();
 
-    printf("Ready when you are!\n");
+    // Wait for input before asking for date and time
+    scanf("%s");
+    printf("\nReady when you are!\n");
 
     datetime_t t = getInitialDate();
-
     rtc_init();
     rtc_set_datetime(&t);
 
@@ -44,22 +45,23 @@ int main() {
         gfx.clear();
         rtc_get_datetime(&t);
 
-        std::ostringstream os{}, os2{};
+        std::ostringstream date_str{}, time_str{};
 
-        os
+        date_str
                 << DATETIME_DOWS[t.dotw] << ", "
                 << std::setw(2) << std::setfill('0') << std::to_string(t.day) << "."
                 << std::setw(2) << std::setfill('0') << std::to_string(t.month) << "."
                 << std::to_string(t.year);
-        os2
+        time_str
                 << std::setw(2) << std::setfill('0') << std::to_string(t.hour) << ":"
                 << std::setw(2) << std::setfill('0') << std::to_string(t.min) << ":"
                 << std::setw(2) << std::setfill('0') << std::to_string(t.sec);
 
-        printf("\r %s %s", os.str().c_str(), os2.str().c_str());
-        os << "\n" << os2.str();
-        // TODO: figure out how to display multi line text
-        gfx.drawString(0, 10, os.str());
+        printf("\r %s %s", date_str.str().c_str(), time_str.str().c_str());
+
+        gfx.drawString(0, 0, date_str.str());
+        gfx.display();
+        gfx.drawString(0, 20, time_str.str());
         gfx.display();
         sleep_ms(1000);
     }
