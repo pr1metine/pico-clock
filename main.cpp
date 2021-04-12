@@ -14,7 +14,7 @@ const char *MODES[]{
         "SEKUNDE",
 };
 
-static const char *DATETIME_DOWS[7] = {
+const char *DATETIME_DOTW[7] = {
         "Sonntag",
         "Montag",
         "Dienstag",
@@ -24,6 +24,21 @@ static const char *DATETIME_DOWS[7] = {
         "Samstag",
 };
 
+const int8_t DAYS_PER_MONTH[12]{
+        31, // Januar
+        29, // Februar
+        31, // März
+        30, // April
+        31, // Mai
+        30, // Juni
+        31, // Juli
+        31, // August
+        30, // September
+        31, // Oktober
+        30, // November
+        31, // Dezember
+};
+
 enum Mode {
     YEAR, MONTH, DAY, DOTW, HOUR, MINUTE, SECOND
 };
@@ -31,8 +46,28 @@ enum Mode {
 constexpr int MODE_SEL = 14;
 constexpr int UP = 16;
 constexpr int DOWN = 15;
+constexpr int DEBOUNCE_DELAY = 200;
 Mode curMode = YEAR;
-datetime_t t;
+datetime_t t{
+        .year = 2021,
+        .month = 4,
+        .day = 20,
+        .dotw = 0,
+        .hour = 9,
+        .min = 34,
+        .sec = 30,
+};
+ulong lastInput = to_ms_since_boot(get_absolute_time());
+
+int8_t getDaysPerMonth(int month) {
+    if (month != 2) {
+        return DAYS_PER_MONTH[month - 1];
+    }
+
+    bool isLeapYear = (t.year % 4 == 0) && ((t.year % 100 != 0) || (t.year % 400 == 0));
+
+    return isLeapYear ? 29 : 28;
+}
 
 void handleModeSelection(uint, uint32_t) {
     curMode = (Mode) (((int) curMode + 1) % 7);
@@ -47,7 +82,7 @@ void handleIncrement(uint, uint32_t) {
             t.month = t.month < 12 ? t.month + 1 : 1;
             break;
         case DAY:
-            t.day = t.day < 31 ? t.day + 1 : 1;
+            t.day = t.day < getDaysPerMonth(t.month) ? t.day + 1 : 1;
             break;
         case DOTW:
             t.dotw = t.dotw < 6 ? t.dotw + 1 : 0;
@@ -75,7 +110,7 @@ void handleDecrement(uint, uint32_t) {
             t.month = t.month > 1 ? t.month - 1 : 12;
             break;
         case DAY:
-            t.day = t.day > 1 ? t.day - 1 : 31;
+            t.day = t.day > 1 ? t.day - 1 : getDaysPerMonth(t.month);
             break;
         case DOTW:
             t.dotw = t.dotw > 0 ? t.dotw - 1 : 6;
@@ -96,6 +131,12 @@ void handleDecrement(uint, uint32_t) {
 }
 
 void handleIRQ(uint gpio, uint32_t event) {
+    ulong curInput = to_ms_since_boot(get_absolute_time());
+    if (curInput - lastInput < DEBOUNCE_DELAY) {
+        return;
+    }
+    lastInput = curInput;
+
     switch (gpio) {
         default:
         case MODE_SEL:
@@ -127,16 +168,6 @@ int main() {
 
     GFX gfx{0x3C, 128, 64, i2c_default};
 
-    t = {
-            .year = 2020,
-            .month = 4,
-            .day = 11,
-            .dotw = 0,
-            .hour = 20,
-            .min = 24,
-            .sec = 30,
-    };
-
     rtc_init();
     rtc_set_datetime(&t);
 
@@ -147,7 +178,7 @@ int main() {
         rtc_get_datetime(&t);
 
         char date_str[40], time_str[40];
-        sprintf(date_str, "%s, %02i.%02i.%i", DATETIME_DOWS[t.dotw], t.day, t.month, t.year);
+        sprintf(date_str, "%s, %02i.%02i.%i", DATETIME_DOTW[t.dotw], t.day, t.month, t.year);
         sprintf(time_str, "%02i:%02i:%02i (%s)", t.hour, t.min, t.sec, MODES[curMode]);
         gfx.drawString(0, 0, date_str);
         gfx.drawString(0, 20, time_str);
@@ -159,4 +190,3 @@ int main() {
 
     return 0;
 }
-
