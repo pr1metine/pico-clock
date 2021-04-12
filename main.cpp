@@ -43,9 +43,9 @@ enum Mode {
     YEAR, MONTH, DAY, DOTW, HOUR, MINUTE, SECOND
 };
 
-constexpr int MODE_SEL = 14;
-constexpr int UP = 16;
-constexpr int DOWN = 15;
+constexpr int MODE_SEL = 27;
+constexpr int UP = 8;
+constexpr int DOWN = 7;
 constexpr int DEBOUNCE_DELAY = 200;
 Mode curMode = YEAR;
 datetime_t t{
@@ -154,19 +154,22 @@ void handleIRQ(uint gpio, uint32_t event) {
 int main() {
     stdio_init_all();
 
-    i2c_init(i2c_default, 400'000);
-    gpio_set_function(PICO_DEFAULT_I2C_SCL_PIN, GPIO_FUNC_I2C);
-    gpio_set_function(PICO_DEFAULT_I2C_SDA_PIN, GPIO_FUNC_I2C);
-    gpio_pull_up(PICO_DEFAULT_I2C_SCL_PIN);
-    gpio_pull_up(PICO_DEFAULT_I2C_SDA_PIN);
+    i2c_init(i2c1, 400'000);
+    gpio_set_function(18, GPIO_FUNC_I2C);
+    gpio_set_function(19, GPIO_FUNC_I2C);
+    gpio_pull_up(18);
+    gpio_pull_up(19);
     gpio_init(MODE_SEL);
     gpio_init(UP);
     gpio_init(DOWN);
-    gpio_set_irq_enabled(UP, GPIO_IRQ_EDGE_RISE, true);
-    gpio_set_irq_enabled(DOWN, GPIO_IRQ_EDGE_RISE, true);
-    gpio_set_irq_enabled_with_callback(MODE_SEL, GPIO_IRQ_EDGE_RISE, true, &handleIRQ);
+    gpio_pull_up(MODE_SEL);
+    gpio_pull_up(UP);
+    gpio_pull_up(DOWN);
+    gpio_set_irq_enabled(UP, GPIO_IRQ_EDGE_FALL, true);
+    gpio_set_irq_enabled(DOWN, GPIO_IRQ_EDGE_FALL, true);
+    gpio_set_irq_enabled_with_callback(MODE_SEL, GPIO_IRQ_EDGE_FALL, true, &handleIRQ);
 
-    GFX gfx{0x3C, 128, 64, i2c_default};
+    GFX gfx{0x3C, 128, 64, i2c1};
 
     rtc_init();
     rtc_set_datetime(&t);
