@@ -169,7 +169,7 @@ int main() {
     gpio_set_irq_enabled(DOWN, GPIO_IRQ_EDGE_FALL, true);
     gpio_set_irq_enabled_with_callback(MODE_SEL, GPIO_IRQ_EDGE_FALL, true, &handleIRQ);
 
-    GFX gfx{0x3C, 128, 64, i2c1};
+    GFX gfx{0x3C, D128x32, i2c1};
 
     rtc_init();
     rtc_set_datetime(&t);
@@ -184,7 +184,7 @@ int main() {
         sprintf(date_str, "%s, %02i.%02i.%i", DATETIME_DOTW[t.dotw], t.day, t.month, t.year);
         sprintf(time_str, "%02i:%02i:%02i (%s)", t.hour, t.min, t.sec, MODES[curMode]);
         gfx.drawString(0, 0, date_str);
-        gfx.drawString(0, 20, time_str);
+        gfx.drawString(0, 15, time_str);
         gfx.display();
 
         sleep_ms(100);

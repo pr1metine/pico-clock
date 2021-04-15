@@ -1,3 +1,4 @@
 [submodule "RPi-Pico-SSD1306-library"]
 	path = RPi-Pico-SSD1306-library
 	url = https://github.com/pr1metine/RPi-Pico-SSD1306-library.git
+	branch = 32px-height
